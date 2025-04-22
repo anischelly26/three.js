@@ -14,6 +14,7 @@ const _targetPosition = new Vector3();
  * This class is an alternative implementation of {@link FlyControls}.
  *
  * @augments Controls
+ * @three_import import { FirstPersonControls } from 'three/addons/controls/FirstPersonControls.js';
  */
 class FirstPersonControls extends Controls {
 
@@ -164,7 +165,7 @@ class FirstPersonControls extends Controls {
 
 		if ( domElement !== null ) {
 
-			this.connect();
+			this.connect( domElement );
 
 			this.handleResize();
 
@@ -174,7 +175,9 @@ class FirstPersonControls extends Controls {
 
 	}
 
-	connect() {
+	connect( element ) {
+
+		super.connect( element );
 
 		window.addEventListener( 'keydown', this._onKeyDown );
 		window.addEventListener( 'keyup', this._onKeyUp );

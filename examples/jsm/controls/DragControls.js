@@ -52,6 +52,7 @@ const STATE = {
  * ```
  *
  * @augments Controls
+ * @three_import import { DragControls } from 'three/addons/controls/DragControls.js';
  */
 class DragControls extends Controls {
 
@@ -122,13 +123,15 @@ class DragControls extends Controls {
 
 		if ( domElement !== null ) {
 
-			this.connect();
+			this.connect( domElement );
 
 		}
 
 	}
 
-	connect() {
+	connect( element ) {
+
+		super.connect( element );
 
 		this.domElement.addEventListener( 'pointermove', this._onPointerMove );
 		this.domElement.addEventListener( 'pointerdown', this._onPointerDown );

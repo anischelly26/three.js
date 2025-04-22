@@ -73,6 +73,7 @@ let sceneGraph;
  * ```
  *
  * @augments Loader
+ * @three_import import { FBXLoader } from 'three/addons/loaders/FBXLoader.js';
  */
 class FBXLoader extends Loader {
 
@@ -137,7 +138,7 @@ class FBXLoader extends Loader {
 	/**
 	 * Parses the given FBX data and returns the resulting group.
 	 *
-	 * @param {Array} FBXBuffer - The raw FBX data as an array buffer.
+	 * @param {ArrayBuffer} FBXBuffer - The raw FBX data as an array buffer.
 	 * @param {string} path - The URL base path.
 	 * @return {Group} An object representing the parsed asset.
 	 */
@@ -1039,7 +1040,7 @@ class FBXTreeParser {
 						skeleton.bones[ i ] = bone;
 
 						// In cases where a bone is shared between multiple meshes
-						// duplicate the bone here and and it as a child of the first bone
+						// duplicate the bone here and add it as a child of the first bone
 						if ( subBone !== null ) {
 
 							bone.add( subBone );
@@ -2763,7 +2764,7 @@ class AnimationParser {
 	}
 
 	// parse nodes in FBXTree.Objects.AnimationStack. These are the top level node in the animation
-	// hierarchy. Each Stack node will be used to create a AnimationClip
+	// hierarchy. Each Stack node will be used to create an AnimationClip
 	parseAnimStacks( layersMap ) {
 
 		const rawStacks = fbxTree.Objects.AnimationStack;

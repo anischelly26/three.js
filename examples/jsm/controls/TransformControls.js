@@ -72,6 +72,7 @@ const _objectChangeEvent = { type: 'objectChange' };
  * `TransformControls` expects that its attached 3D object is part of the scene graph.
  *
  * @augments Controls
+ * @three_import import { TransformControls } from 'three/addons/controls/TransformControls.js';
  */
 class TransformControls extends Controls {
 
@@ -358,13 +359,15 @@ class TransformControls extends Controls {
 
 		if ( domElement !== null ) {
 
-			this.connect();
+			this.connect( domElement );
 
 		}
 
 	}
 
-	connect() {
+	connect( element ) {
+
+		super.connect( element );
 
 		this.domElement.addEventListener( 'pointerdown', this._onPointerDown );
 		this.domElement.addEventListener( 'pointermove', this._onPointerHover );

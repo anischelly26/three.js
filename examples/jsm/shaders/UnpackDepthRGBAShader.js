@@ -1,10 +1,13 @@
-/** @module UnpackDepthRGBAShader */
+/**
+ * @module UnpackDepthRGBAShader
+ * @three_import import { UnpackDepthRGBAShader } from 'three/addons/shaders/UnpackDepthRGBAShader.js';
+ */
 
 /**
  * Unpack RGBA depth shader that shows RGBA encoded depth as monochrome color.
  *
  * @constant
- * @type {Object}
+ * @type {ShaderMaterial~Shader}
  */
 const UnpackDepthRGBAShader = {
 
